@@ -390,7 +390,7 @@ public class WebWalker extends PScript {
     protected void onStart() {
 //        PluginWrapper wrappedPaistiPlugin = oprsExternalPluginManager.getExternalPluginManager().getPlugin("paistisuite-plugin");
 //        PluginWrapper wrappedWebwalkerPlugin = oprsExternalPluginManager.getExternalPluginManager().getPlugin("webwalker-plugin");
-//        if (wrappedPaistiPlugin == null) {s
+//        if (wrappedPaistiPlugin == null) {
 //            sendGameMessage("WebWalker - Missing PaistiSuite Plugin");
 //            return;
 //        }
