@@ -168,6 +168,21 @@
 				<version>${slf4j.version}</version>
 			</dependency>
 			<dependency>
+				<groupId>org.jetbrains.kotlin</groupId>
+				<artifactId>kotlin-stdlib</artifactId>
+				<version>1.8.21</version> <!-- Use the latest version available -->
+			</dependency>
+			<dependency>
+				<groupId>org.pf4j</groupId>
+				<artifactId>pf4j</artifactId>
+				<version>3.6.0</version> <!-- Ensure you use the latest version -->
+			</dependency>
+			<dependency>
+				<groupId>org.pf4j</groupId>
+				<artifactId>pf4j-update</artifactId>
+				<version>3.6.0</version> <!-- Make sure to use the latest version -->
+			</dependency>
+			<dependency>
 				<groupId>org.slf4j</groupId>
 				<artifactId>slf4j-simple</artifactId>
 				<version>${slf4j.version}</version>

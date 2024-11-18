@@ -880,7 +880,7 @@ public interface Client extends OAuthApi, GameEngine
 	 * @return the {@link WidgetNode} for the interface. This should be closed later by calling
 	 * {{@link #closeInterface(WidgetNode, boolean)}.
 	 */
-	WidgetNode openInterface(int componentId, int interfaceId, @MagicConstant(valuesFromClass = WidgetModalMode.class) int modalMode);
+	//WidgetNode openInterface(int componentId, int interfaceId, @MagicConstant(valuesFromClass = WidgetModalMode.class) int modalMode);
 
 	/**
 	 * Close an interface
@@ -2069,7 +2069,7 @@ public interface Client extends OAuthApi, GameEngine
 	int DRAW_2D_OTHERS = 1 << 30;
 
 	/**
-	 * Gets the current draw2D mask. 
+	 * Gets the current draw2D mask.
 	 * @return the current mask
 	 * @see Client#setDraw2DMask(int)
 	 */
@@ -2357,4 +2357,18 @@ public interface Client extends OAuthApi, GameEngine
 	{
 		return getTopLevelWorldView().getSelectedSceneTile();
 	}
+
+	void setSelectedSpellWidget(int widgetID);
+
+	void invokeMenuAction(String option, String target, int identifier, int opcode, int param0, int param1);
+
+	void setMouseIdleTicks(int cycles);
+
+	void setKeyboardIdleTicks(int cycles);
+
+	void setSelectedSpellChildIndex(int index);
+
+	void setSelectedSpellItemId(int itemId);
+
+	void setHideDisconnect(boolean dontShow);
 }

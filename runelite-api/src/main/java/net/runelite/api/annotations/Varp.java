@@ -36,3 +36,4 @@ import org.intellij.lang.annotations.MagicConstant;
 public @interface Varp
 {
 }
+

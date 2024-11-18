@@ -25,10 +25,11 @@
 package net.runelite.api.widgets;
 
 import java.awt.Rectangle;
+import java.util.Collection;
 import javax.annotation.Nullable;
 import net.runelite.api.FontTypeFace;
 import net.runelite.api.Point;
-import net.runelite.api.annotations.Component;
+import net.runelite.api.SpritePixels;
 import org.intellij.lang.annotations.MagicConstant;
 import org.jetbrains.annotations.Range;
 
@@ -54,7 +55,6 @@ public interface Widget
 	 *
 	 * @see WidgetID
 	 */
-	@Component
 	int getId();
 
 	/**
@@ -112,8 +112,9 @@ public interface Widget
 
 	/**
 	 * Gets a dynamic child by index
+	 *
+	 * @throws IndexOutOfBoundsException if the index is outside of the child array
 	 */
-	@Nullable
 	Widget getChild(int index);
 
 	/**
@@ -189,6 +190,9 @@ public interface Widget
 	 * @param y y pos relative to the parent
 	 */
 	void setForcedPosition(int x, int y);
+
+	void setForcedX();
+	void setForcedY();
 
 	/**
 	 * Gets the text displayed on this widget.
@@ -470,6 +474,25 @@ public interface Widget
 	Rectangle getBounds();
 
 	/**
+	 * Gets any items that are being displayed in the widget.
+	 *
+	 * @return any items displayed, or null if there are no items
+	 */
+	@Deprecated
+	Collection<WidgetItem> getWidgetItems();
+
+	/**
+	 * Gets a widget item at a specific index.
+	 *
+	 * @param index index of the item
+	 * @return the widget item at index, or null if an item at index
+	 * does not exist
+	 * @throws IndexOutOfBoundsException if the index is out of bounds
+	 */
+	@Deprecated
+	WidgetItem getWidgetItem(int index);
+
+	/**
 	 * Gets the item ID displayed by the widget.
 	 *
 	 * @return the item ID
@@ -579,8 +602,8 @@ public interface Widget
 	 */
 	Widget setPos(int x, int y);
 	Widget setPos(int x, int y,
-		@MagicConstant(valuesFromClass = WidgetPositionMode.class) int xMode,
-		@MagicConstant(valuesFromClass = WidgetPositionMode.class) int yMode);
+				  @MagicConstant(valuesFromClass = WidgetPositionMode.class) int xMode,
+				  @MagicConstant(valuesFromClass = WidgetPositionMode.class) int yMode);
 
 	/**
 	 * Gets the height coordinate of this widget before being adjusted by
@@ -612,13 +635,12 @@ public interface Widget
 
 	Widget setSize(int width, int height);
 	Widget setSize(int width, int height,
-		@MagicConstant(valuesFromClass = WidgetSizeMode.class) int widthMode,
-		@MagicConstant(valuesFromClass = WidgetSizeMode.class) int heightMode);
+				   @MagicConstant(valuesFromClass = WidgetSizeMode.class) int widthMode,
+				   @MagicConstant(valuesFromClass = WidgetSizeMode.class) int heightMode);
 
 	/**
 	 * Gets the menu options available on the widget as a sparse array.
 	 */
-	@Nullable
 	String[] getActions();
 
 	/**
@@ -648,11 +670,6 @@ public interface Widget
 	 * @param action The verb to be displayed next to the widget's name in the context menu
 	 */
 	void setAction(int index, String action);
-
-	/**
-	 * Clear the menu options on a widget.
-	 */
-	void clearActions();
 
 	/**
 	 * Sets a script to be ran when the a menu action is clicked.
@@ -996,11 +1013,6 @@ public interface Widget
 	/**
 	 * {@link net.runelite.api.VarPlayer}s that triggers this widgets varTransmitListener
 	 */
-	int[] getVarTransmitTrigger();
-
-	/**
-	 * {@link net.runelite.api.VarPlayer}s that triggers this widgets varTransmitListener
-	 */
 	void setVarTransmitTrigger(int ...trigger);
 
 	/**
@@ -1069,4 +1081,76 @@ public interface Widget
 	 * @param args A ScriptID, then the args for the script
 	 */
 	void setOnVarTransmitListener(Object ...args);
+
+	//////////////////////////////////// OPRS
+
+	int getButtonType();
+
+	boolean isWidgetItemDragged(int index);
+
+	Point getWidgetItemDragOffsets();
+
+	String getSpellName();
+
+	/**
+	 * You probably want {@link Widget#getText()} instead
+	 */
+	String getRSButtonText();
+
+	/**
+	 * You probably want {@link Widget#getText()} instead
+	 */
+	String getButtonText();
+
+	/**
+	 * Gets the internal field returned by getName unfiltered
+	 * @return the unfiltered name
+	 */
+	String getRSName();
+
+	String[] getItemActions();
+
+	/**
+	 * Changes the parent ID for the widget
+	 */
+	void setParentId(int id);
+
+	/**
+	 * Changes the ID of the widget
+	 */
+	void setId(int id);
+
+	/**
+	 * Sets the index of this element
+	 */
+	void setIndex(int index);
+
+	/**
+	 * Seems like this needs to set to true when creating new widgets
+	 */
+	void setIsIf3(boolean isIf3);
+
+	/**
+	 * Returns yes if your mouse pointer is over this widget or any of it's children.
+	 */
+	boolean containsMouse();
+
+	/**
+	 * Gets the image which is (or should be) drawn on this widget
+	 */
+	SpritePixels getSprite();
+
+	/**
+	 * Sets the X padding between widgets, mainly for inventory items
+	 */
+	void setPaddingX(int val);
+
+	/**
+	 * Sets the Y padding between widgets, mainly for inventory items
+	 */
+	void setPaddingY(int val);
+
+	int[] getVarTransmitTrigger();
+
+	void clearActions();
 }

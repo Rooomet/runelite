@@ -86,6 +86,11 @@ public class TestMenuEntry implements MenuEntry
 	}
 
 	@Override
+	public int setItemId() {
+		return 0;
+	}
+
+	@Override
 	public int getIdentifier()
 	{
 		return this.identifier;
@@ -219,6 +224,16 @@ public class TestMenuEntry implements MenuEntry
 	{
 		this.itemId = itemId;
 		return this;
+	}
+
+	@Override
+	public int getActionParam1() {
+		return 0;
+	}
+
+	@Override
+	public MenuAction getMenuAction() {
+		return null;
 	}
 
 	@Nullable

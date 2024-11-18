@@ -30,8 +30,7 @@ import org.intellij.lang.annotations.MagicConstant;
 /**
  * Represents a player entity in the game.
  */
-public interface Player extends Actor
-{
+public interface Player extends Actor, Locatable {
 	/**
 	 * Get the ID of the player
 	 *
@@ -98,13 +97,13 @@ public interface Player extends Actor
 	 * @return the id skull icon, or -1 if unskulled.
 	 * @see SkullIcon
 	 */
-	@MagicConstant(valuesFromClass = SkullIcon.class)
-	int getSkullIcon();
+//	@MagicConstant(valuesFromClass = SkullIcon.class)
+//	int getSkullIcon();
 
 	/**
 	 * Sets the displayed skull icon of the player.
 	 * @param skullIcon The id of the skull icon, or -1 to remove the skull icon.
 	 * @see SkullIcon
 	 */
-	void setSkullIcon(@MagicConstant(valuesFromClass = SkullIcon.class) int skullIcon);
+//	void setSkullIcon(@MagicConstant(valuesFromClass = SkullIcon.class) int skullIcon);
 }

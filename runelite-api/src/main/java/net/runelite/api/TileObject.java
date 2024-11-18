@@ -150,4 +150,14 @@ public interface TileObject
 	 */
 	@Nullable
 	Shape getClickbox();
+
+	/**
+	 * Gets the name of the object
+	 */
+	String getName();
+
+	/**
+	 * Gets the menu actions of the object
+	 */
+	String[] getActions();
 }

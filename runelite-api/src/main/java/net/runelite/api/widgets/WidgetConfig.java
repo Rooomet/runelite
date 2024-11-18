@@ -1,3 +1,4 @@
+
 /*
  * Copyright (c) 2018, Adam <Adam@sigterm.info>
  * All rights reserved.
@@ -62,7 +63,6 @@ public final class WidgetConfig
 	/**
 	 * Can this widget be used on a item in your inventory
 	 */
-	@Deprecated
 	public static final int USE_ITEM = 16 << 11;
 
 	/**
@@ -71,19 +71,31 @@ public final class WidgetConfig
 	public static final int USE_WIDGET = 32 << 11;
 
 	/**
-	 * Controls whether this widget can be dragged around.
+	 * Controls whether or not a widget can have another dragged onto it.
 	 */
-	public static final int DRAG = 1 << 17;
+	public static final int DRAG_ON = 1 << 17;
 
 	/**
-	 * Controls whether this widget can have other widgets dragged onto it.
+	 * Controls whether or not a widget can be dragged around.
 	 */
-	public static final int DRAG_ON = 1 << 20;
+	public static final int DRAG = 1 << 20;
 
 	/**
 	 * Can widgets with USE_WIDGET be used on this widget
 	 */
 	public static final int WIDGET_USE_TARGET = 1 << 21;
+
+	/**
+	 * Is the widget an (inventory?) item
+	 */
+	public static final int ITEM = 1 << 30;
+
+	/**
+	 * Add a USE option
+	 *
+	 * @see// MenuOpcode#ITEM_USE
+	 */
+	public static final int ITEM_USE_OP = 1 << 31;
 
 	/**
 	 * Does the action (zero bosed) get transmitted to the server

@@ -35,6 +35,7 @@ package net.runelite.api;
  * allowed to access. This allows a more compact representation
  * of small values, like booleans
  */
+
 public final class Varbits
 {
 	/*

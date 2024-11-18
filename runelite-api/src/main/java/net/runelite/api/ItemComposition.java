@@ -285,4 +285,6 @@ public interface ItemComposition extends ParamHolder
 	 * @return
 	 */
 	int getContrast();
+
+	String[] getGroundActions();
 }

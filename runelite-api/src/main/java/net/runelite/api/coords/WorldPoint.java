@@ -457,6 +457,41 @@ public class WorldPoint
 		return Math.max(Math.abs(getX() - other.getX()), Math.abs(getY() - other.getY()));
 	}
 
+	/**
+	 * Gets the straight-line distance between this point and another.
+	 * <p>
+	 * If the other point is not on the same plane, this method will return
+	 * {@link Float#MAX_VALUE}. If ignoring the plane is wanted, use the
+	 * {@link #distanceTo2DHypotenuse(WorldPoint)} method.
+	 *
+	 * @param other other point
+	 * @return the straight-line distance
+	 */
+	public float distanceToHypotenuse(WorldPoint other)
+	{
+		if (other.plane != plane)
+		{
+			return Float.MAX_VALUE;
+		}
+
+		return distanceTo2DHypotenuse(other);
+	}
+
+	/**
+	 * Find the straight-line distance from this point to another point.
+	 * <p>
+	 * This method disregards the plane value of the two tiles and returns
+	 * the simple distance between the X-Z coordinate pairs.
+	 *
+	 * @param other other point
+	 * @return the straight-line distance
+	 */
+	public float distanceTo2DHypotenuse(WorldPoint other)
+	{
+		return (float) Math.hypot(getX() - other.getX(), getY() - other.getY());
+	}
+
+
 	@Deprecated
 	public static WorldPoint fromScene(Client client, int x, int y, int plane)
 	{

@@ -49,6 +49,8 @@ public interface MenuEntry
 	String getTarget();
 	MenuEntry setTarget(String target);
 
+	int setItemId();
+
 	/**
 	 * An identifier value for the target of the action.
 	 */
@@ -131,6 +133,10 @@ public interface MenuEntry
 	 * @return
 	 */
 	MenuEntry setItemId(int itemId);
+
+	int getActionParam1();
+
+	MenuAction getMenuAction();
 
 	/**
 	 * Get the widget this menu entry is on, if this is a menu entry

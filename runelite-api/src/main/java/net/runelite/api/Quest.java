@@ -228,6 +228,7 @@ public enum Quest
 	MEAT_AND_GREET(3712, "Meat and Greet"),
 	ETHICALLY_ACQUIRED_ANTIQUITIES(3713, "Ethically Acquired Antiquities"),
 	THE_CURSE_OF_ARRAV(3937, "The Curse of Arrav"),
+	DESERT_TREASURE(345, "Desert Treasure"),
 	;
 
 	@Getter

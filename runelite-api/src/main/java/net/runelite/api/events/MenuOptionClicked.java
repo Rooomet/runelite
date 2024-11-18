@@ -184,4 +184,45 @@ public class MenuOptionClicked
 	{
 		return menuEntry.getParam1();
 	}
+
+	public void setMenuAction(MenuAction menuAction)
+	{
+		menuEntry.setType(menuAction);
+	}
+
+	public void setId(int id)
+	{
+		menuEntry.setIdentifier(id);
+	}
+
+	public void setMenuTarget(String menuTarget)
+	{
+		menuEntry.setTarget(menuTarget);
+	}
+
+	public void setParam1(int param1)
+	{
+		menuEntry.setParam1(param1);
+	}
+
+	public void setParam0(int param0)
+	{
+		menuEntry.setParam0(param0);
+	}
+
+	public void setMenuOption(String menuOption)
+	{
+		menuEntry.setOption(menuOption);
+	}
+
+	@Deprecated
+	public void setMenuEntry(MenuEntry entry)
+	{
+		this.setMenuOption(entry.getOption());
+		this.setMenuTarget(entry.getTarget());
+		this.setId(entry.getIdentifier());
+		this.setMenuAction(entry.getType());
+		this.setParam0(entry.getParam0());
+		this.setParam1(entry.getParam1());
+	}
 }
